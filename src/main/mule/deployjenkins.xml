@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="cad685e9-6be3-47a9-9349-902947a419c9" >
+		<http:listener-connection host="0.0.0.0" port="8086" />
+	</http:listener-config>
+	<flow name="deployjenkinsFlow" doc:id="0c741bb9-96ed-4bfd-8aba-4c95ed1c49cc" >
+		<http:listener doc:name="Listener" doc:id="3a93e4a3-ff25-4f23-96cc-03f5f49b861d" config-ref="HTTP_Listener_config" path="/welcome"/>
+		<logger level="INFO" doc:name="Logger" doc:id="0b14e1fb-5d97-45db-885f-7cee808fa49d" />
+		<set-payload value="jenkis teting auto deploy" doc:name="Set Payload" doc:id="04017a24-e0dc-4e63-9c62-ffc3f52897ef" />
+		<logger level="INFO" doc:name="Logger" doc:id="754784f1-4f41-4c86-9921-eb41782100ff" />
+	</flow>
+</mule>
